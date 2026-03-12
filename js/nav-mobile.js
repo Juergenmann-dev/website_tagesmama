@@ -1,11 +1,21 @@
 /**
- * Mobile-Navigation: Tap auf Über uns / Tagespflege / Blog & Gästebuch / Rechtliches
- * klappt das Menü auf und lässt es offen (Accordion), damit Unterkategorien gut nutzbar sind.
+ * Mobile-Navigation: Menü-Button klappt Navigation ein/aus; Dropdowns als Accordion.
  */
 (function () {
   var mq = window.matchMedia("(max-width: 640px)");
   var nav = document.querySelector(".site-nav");
+  var header = document.querySelector(".site-header");
+  var menuToggle = document.querySelector(".nav-menu-toggle");
   if (!nav) return;
+
+  if (menuToggle && header) {
+    menuToggle.addEventListener("click", function () {
+      if (!mq.matches) return;
+      var open = header.classList.toggle("nav-open");
+      menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
+      menuToggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+    });
+  }
 
   function onToggleClick(e) {
     if (!mq.matches) return;
