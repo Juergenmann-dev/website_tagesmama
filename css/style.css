@@ -583,11 +583,12 @@ p {
     font-size: 16px;
   }
 
-  /* Gesamter Header scrollt mit; nur die Überschrift bleibt beim Runterscrollen sichtbar */
+  /* Header scrollt mit der Seite raus – nur die bunte Überschrift bleibt oben kleben */
   .site-header {
-    position: relative;
+    position: static;
   }
 
+  /* Nur diese Zeile bleibt beim Runterscrollen sichtbar */
   .site-title {
     position: sticky;
     top: 0;
@@ -601,6 +602,7 @@ p {
   }
 
   .site-header-inner {
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
   }
