@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Gästebuch – Monti Pfiffikus Kindertagespflege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <div class="site-brand">
+        <h1 class="site-title"><a href="index.html">Monti Pfiffikus Kindertagespflege</a></h1>
+        <p class="site-tagline"><a href="index.html">Gut betreut in Kindertagespflege! Erfahren – Kompetent – Zuverlässig</a></p>
+      </div>
+      <nav aria-label="Hauptnavigation">
+        <ul class="site-nav">
+          <li><a href="index.html">Start</a></li>
+          <li class="nav-dropdown">
+            <a href="ueber-mich.html" class="nav-dropdown-toggle">Über uns</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="ueber-mich.html">Über mich</a></li>
+              <li><a href="referenzen.html">Referenzen</a></li>
+            </ul>
+          </li>
+          <li class="nav-dropdown">
+            <a href="betreuungszeiten.html" class="nav-dropdown-toggle">Tagespflege</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="betreuungszeiten.html">Betreuungszeiten</a></li>
+              <li><a href="kosten.html">Kosten</a></li>
+            </ul>
+          </li>
+          <li><a href="galerie.html">Galerie</a></li>
+          <li class="nav-dropdown">
+            <a href="blog.html" class="nav-dropdown-toggle">Blog &amp; Gästebuch</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="gaestebuch.html" aria-current="page">Gästebuch</a></li>
+            </ul>
+          </li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+          <li class="nav-sep" aria-hidden="true"></li>
+          <li class="nav-dropdown">
+            <a href="impressum.html" class="nav-dropdown-toggle">Rechtliches</a>
+            <ul class="nav-dropdown-menu">
+              <li><a href="impressum.html">Impressum</a></li>
+              <li><a href="datenschutz.html">Datenschutz</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <h1>Gästebuch</h1>
+    <p class="lead">Hier können Eltern ihre Meinung hinterlassen – Erfahrungen, ein paar nette Worte oder Feedback zur Betreuung.</p>
+
+    <div class="gaestebuch-form">
+      <h2>Eintrag schreiben</h2>
+      <form action="#" method="post" id="gaestebuch-form">
+        <label for="gb-name">Name (optional)</label>
+        <input type="text" id="gb-name" name="name" placeholder="z. B. Familie M.">
+        <label for="gb-text">Ihr Eintrag</label>
+        <textarea id="gb-text" name="text" placeholder="Ihre Meinung, Erfahrung oder ein paar nette Worte …" required></textarea>
+        <button type="submit" class="btn">Eintrag absenden</button>
+      </form>
+      <p class="gaestebuch-hinweis">Einträge werden nach Prüfung veröffentlicht. Später: Speicherung über Firebase, Anzeige hier.</p>
+    </div>
+
+    <h2>Einträge von Eltern</h2>
+    <ul class="gaestebuch-list">
+      <li class="gaestebuch-eintrag">
+        <p class="gaestebuch-eintrag-meta">Familie K., 10. März 2026</p>
+        <p class="gaestebuch-eintrag-text">Platzhalter: Hier erscheinen später die Einträge aus dem Gästebuch (über Firebase).</p>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <span class="guest-counter" aria-label="Anzahl Besucher">Besucher: <strong id="guest-count">––</strong></span>
+      <span class="footer-group"><span class="footer-group-label">Rechtliches:</span> <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutzerklärung</a></span>
+      <span class="footer-group"><span class="footer-group-label">Blog &amp; Gästebuch:</span> <a href="blog.html">Blog</a> · <a href="gaestebuch.html">Gästebuch</a></span>
+      <a href="kontakt.html">Kontakt</a>
+      <span>Kindertagespflege Gifhorn</span>
+    </div>
+  </footer>
+  <script src="js/guest-counter.js"></script>
+</body>
+</html>

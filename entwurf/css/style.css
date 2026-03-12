@@ -1,0 +1,594 @@
+/* Monti Pfiffikus – Entwurf: warm, einladend, für Jung und Alt */
+
+:root {
+  --color-bg: #f5f0e8;
+  --color-text: #3d3630;
+  --color-text-muted: #6b5f55;
+  --color-accent: #b85c38;
+  --color-accent-hover: #9a4d30;
+  --color-header-bg: #fdfbf7;
+  --color-border: #e5ddd2;
+  --color-warm-highlight: #ebe4da;
+  --font-sans: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-size-base: 1.125rem;
+  --line-height: 1.65;
+  --max-width: 48rem;
+  --space: 1.5rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 18px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* Header */
+.site-header {
+  background: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space) 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 var(--space);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space);
+}
+
+.site-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.site-title a {
+  background: linear-gradient(90deg, #b85c38 0%, #c97b3a 20%, #d4a84b 40%, #6b9b6b 65%, #4a7c9e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+}
+
+.site-title a:hover {
+  opacity: 0.92;
+}
+
+.site-tagline {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.site-tagline a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 1.25rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav > li {
+  position: relative;
+}
+
+.site-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.35em 0;
+  display: inline-block;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--color-accent);
+}
+
+/* Dropdown: Über uns, Tagespflege */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  padding-right: 0.25em;
+}
+
+.nav-dropdown-toggle::after {
+  content: " ▾";
+  font-size: 0.75em;
+  opacity: 0.8;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 11rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  list-style: none;
+  background: var(--color-header-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0,0,0,0.08);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.25rem);
+  transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  z-index: 20;
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.nav-dropdown-menu a {
+  display: block;
+  padding: 0.4rem 1rem;
+  color: var(--color-text);
+  font-size: 0.95rem;
+}
+
+.nav-dropdown-menu a:hover {
+  background: var(--color-warm-highlight);
+  color: var(--color-accent);
+}
+
+.nav-dropdown-menu [aria-current="page"] {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Optische Trennung zwischen Inhalt und Rechtlichem */
+.site-nav .nav-sep {
+  width: 1px;
+  height: 1.2em;
+  background: var(--color-border);
+  margin: 0 0.25rem;
+  padding: 0;
+  flex-shrink: 0;
+  list-style: none;
+  pointer-events: none;
+}
+
+.site-nav .nav-sep::marker {
+  display: none;
+}
+
+/* Main */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: calc(var(--space) * 2) var(--space);
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: 700;
+  margin: 0 0 0.75em;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 1.75em 0 0.5em;
+  color: var(--color-text);
+}
+
+h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 1.25em 0 0.4em;
+  color: var(--color-text);
+}
+
+.page-intro {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 1.75em;
+}
+
+/* Startseite: Hero (später Bild) */
+.hero {
+  margin: 0 calc(-1 * var(--space));
+  margin-bottom: 2rem;
+  background: linear-gradient(165deg, #ebe0d4 0%, #e8d5c4 50%, #f0e6dc 100%);
+  border-radius: 0 0 1.5rem 1.5rem;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-image-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.hero-icon {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.hero-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image-caption {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 20rem;
+}
+
+.hero-title-block {
+  padding: 1.25rem var(--space) 1.5rem;
+  text-align: center;
+}
+
+.hero-title-block .site-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 0.2em;
+  color: var(--color-text);
+}
+
+.hero-title-block .hero-tagline {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+/* Fallback: alter Text-Block (optional ausblendbar) */
+.hero-claim {
+  background: var(--color-header-bg);
+  border: 2px solid var(--color-accent);
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.hero-claim .badge { display: inline-block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent); margin-bottom: 0.35em; }
+.hero-claim .claim-title { font-size: 1.4rem; font-weight: 700; margin: 0 0 0.25em; color: var(--color-text); }
+.hero-claim .claim-sub { margin: 0; font-size: 1rem; color: var(--color-text-muted); }
+
+p {
+  margin: 0 0 1em;
+}
+
+.lead {
+  font-size: 1.2rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5em;
+}
+
+/* Buttons / Links as buttons */
+.btn {
+  display: inline-block;
+  padding: 0.6em 1.25em;
+  background: var(--color-accent);
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 0.35rem;
+  margin-top: 0.5em;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: 3rem;
+  padding: var(--space) var(--space) 2rem;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-header-bg);
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.site-footer-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  justify-content: center;
+}
+
+.site-footer a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  color: var(--color-accent);
+}
+
+.footer-group-label {
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+.footer-group .footer-group-label {
+  margin-right: 0.2em;
+}
+
+/* Galerie: Kategorien-Blöcke */
+.galerie-kategorie {
+  margin: 2rem 0;
+}
+
+.galerie-kategorie h3 {
+  margin-bottom: 0.75em;
+  padding-bottom: 0.35em;
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.galerie-placeholder {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+  min-height: 120px;
+  background: var(--color-border);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Referenzen: Dokumenten-Karten */
+.referenzen-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.referenz-karte {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  background: var(--color-header-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.referenz-karte .icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 0.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.referenz-karte h4 {
+  margin: 0 0 0.25em;
+  font-size: 1.05rem;
+}
+
+.referenz-karte p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+/* Über-mich: längere Texte, etwas mehr Atem */
+.prose {
+  max-width: 42rem;
+}
+
+.prose p {
+  margin-bottom: 1.1em;
+}
+
+.prose .section-head {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin: 2rem 0 0.75em;
+  padding-top: 0.5em;
+}
+
+/* Blog – Aus dem Alltag */
+.blog-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.blog-post {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.blog-post:last-child {
+  border-bottom: none;
+}
+
+.blog-post-date {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.25em;
+}
+
+.blog-post h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.blog-post p {
+  margin-bottom: 0.75em;
+}
+
+/* Gästebuch – Feedback von Eltern */
+.gaestebuch-intro {
+  margin-bottom: 1.5rem;
+}
+
+.gaestebuch-form {
+  background: var(--color-warm-highlight);
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 32rem;
+}
+
+.gaestebuch-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.35em;
+  font-size: 0.95rem;
+}
+
+.gaestebuch-form input,
+.gaestebuch-form textarea {
+  width: 100%;
+  padding: 0.5rem 0.6rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.gaestebuch-form textarea {
+  min-height: 5rem;
+  resize: vertical;
+}
+
+.gaestebuch-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.gaestebuch-eintrag {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--color-header-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.gaestebuch-eintrag-meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5em;
+}
+
+.gaestebuch-eintrag-text {
+  margin: 0;
+}
+
+.gaestebuch-hinweis {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-top: 1rem;
+}
+
+/* Besucherzähler */
+.guest-counter {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.guest-counter strong {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  html {
+    font-size: 16px;
+  }
+
+  .site-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-nav {
+    width: 100%;
+  }
+}
