@@ -598,7 +598,7 @@ p {
   /* Header scrollt mit der Seite raus – nur die Titel-Leiste bleibt fix oben */
   .site-header {
     position: static;
-    padding-top: 3.25rem; /* Platz für die fixe Leiste */
+    padding-top: 4.5rem; /* Platz für die fixe Leiste, damit Claim sichtbar bleibt */
   }
 
   .site-title-sticky-bar {
