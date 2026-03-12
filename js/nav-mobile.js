@@ -9,11 +9,13 @@
   if (!nav) return;
 
   if (menuToggle && header) {
+    if (mq.matches) header.classList.remove("nav-open");
     menuToggle.addEventListener("click", function () {
       if (!mq.matches) return;
       var open = header.classList.toggle("nav-open");
       menuToggle.setAttribute("aria-expanded", open ? "true" : "false");
       menuToggle.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+      menuToggle.textContent = open ? "Menü schließen" : "Menü";
     });
   }
 
