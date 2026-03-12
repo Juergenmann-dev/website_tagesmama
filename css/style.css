@@ -95,6 +95,11 @@ body {
   text-decoration: none;
 }
 
+/* Mobile: Sticky-Leiste nur für Überschrift (auf Desktop ausgeblendet) */
+.site-title-sticky-bar {
+  display: none;
+}
+
 .site-nav {
   display: flex;
   flex-wrap: wrap;
@@ -583,26 +588,39 @@ p {
     font-size: 16px;
   }
 
-  /* Header scrollt mit der Seite raus – nur die bunte Überschrift bleibt oben kleben */
+  /* Header scrollt mit der Seite raus – nur die Sticky-Leiste (Überschrift) bleibt oben */
   .site-header {
     position: static;
   }
 
-  /* Nur diese Zeile bleibt beim Runterscrollen sichtbar */
-  .site-title {
+  .site-title-sticky-bar {
+    display: block;
     position: sticky;
     top: 0;
     z-index: 11;
-    padding: 0.6rem 0;
-    margin: 0 calc(-1 * var(--space)) 0 calc(-1 * var(--space));
-    padding-left: var(--space);
-    padding-right: var(--space);
+    padding: 0.6rem var(--space);
     background: var(--color-header-bg);
     border-bottom: 1px solid var(--color-border);
   }
 
+  .site-title-sticky-bar a {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #b85c38 0%, #c97b3a 20%, #d4a84b 40%, #6b9b6b 65%, #4a7c9e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-decoration: none;
+  }
+
+  /* Doppelte Überschrift vermeiden: Original-Titel im Header auf Mobile ausblenden */
+  .site-brand .site-title {
+    display: none;
+  }
+
   .site-header-inner {
-    position: relative;
     flex-direction: column;
     align-items: flex-start;
   }
