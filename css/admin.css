@@ -1,0 +1,206 @@
+/* Admin-Bereich: Login und Dashboard */
+
+.admin-login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  padding: 1.5rem;
+}
+
+.admin-login-card {
+  width: 100%;
+  max-width: 22rem;
+  background: var(--color-header-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+  padding: 2rem;
+  box-shadow: 0 0.2rem 0.6rem rgba(0, 0, 0, 0.06);
+}
+
+.admin-login-title {
+  margin: 0 0 0.2em;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.admin-login-subtitle {
+  margin: 0 0 1.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.admin-login-form label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 0.35em;
+  color: var(--color-text);
+}
+
+.admin-login-form input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.35rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.admin-login-form input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(184, 92, 56, 0.2);
+}
+
+.admin-login-btn {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.admin-login-message {
+  margin: 0 0 1rem !important;
+  padding: 0.5rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 0.35rem;
+}
+
+.admin-login-message--error {
+  background: #fde8e8;
+  color: #a52a2a;
+}
+
+.admin-login-message--success {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.admin-login-hint {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.admin-login-back {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.admin-login-back:hover {
+  text-decoration: underline;
+}
+
+/* Admin-Dashboard */
+.admin-page {
+  min-height: 100vh;
+  background: var(--color-bg);
+}
+
+.admin-header {
+  background: var(--color-header-bg);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+}
+
+.admin-header-inner {
+  max-width: 64rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.admin-site-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.admin-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.admin-nav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.admin-nav a:hover {
+  color: var(--color-accent);
+}
+
+.admin-user-info {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.admin-logout-btn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--color-accent);
+  background: transparent;
+  border: 1px solid var(--color-accent);
+  border-radius: 0.35rem;
+  cursor: pointer;
+}
+
+.admin-logout-btn:hover {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.admin-main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.admin-main h2 {
+  margin-top: 0;
+}
+
+.admin-intro {
+  margin-bottom: 1.5rem;
+}
+
+.admin-section {
+  margin: 1.5rem 0;
+  padding: 1.25rem;
+  background: var(--color-header-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 0.5rem;
+}
+
+.admin-section h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.admin-section ul {
+  margin: 0.5rem 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.admin-section code {
+  font-size: 0.9em;
+  background: var(--color-warm-highlight);
+  padding: 0.1em 0.35em;
+  border-radius: 0.2rem;
+}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Admin | Monti Pfiffikus Kindertagespflege</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body class="admin-page">
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <h1 class="admin-site-title">Admin-Bereich</h1>
+      <nav class="admin-nav">
+        <span id="admin-user-info" class="admin-user-info"></span>
+        <a href="vergleich.html">Vergleich (Texte)</a>
+        <button type="button" id="admin-logout-btn" class="admin-logout-btn">Abmelden</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <h2>Willkommen im Admin-Bereich</h2>
+    <p class="admin-intro">
+      Hier können später z. B. Gästebuch-Einträge, Blog-Beiträge oder Kontaktanfragen verwaltet werden.
+      Die Anmeldung wird mit <strong>Firebase Authentication</strong> abgesichert – dazu muss das Projekt nur noch mit Firebase angebunden werden.
+    </p>
+
+    <section class="admin-section">
+      <h3>Firebase-Anbindung (geplant)</h3>
+      <ul>
+        <li>Firebase Authentication für Login (E-Mail/Passwort oder andere Anbieter)</li>
+        <li>Nach erfolgreicher Anmeldung: Zugriff auf diesen Bereich</li>
+        <li>Optional: Firestore/Realtime Database für Gästebuch, Blog, etc.</li>
+      </ul>
+      <p>Die Datei <code>js/admin-auth.js</code> ist vorbereitet: Dort die Platzhalter-Logik durch <code>firebase.auth()</code> ersetzen.</p>
+    </section>
+
+    <p><a href="index.html">Zur öffentlichen Website</a></p>
+  </main>
+
+  <script src="js/admin-auth.js"></script>
+  <script>
+    (function() {
+      // Prüfen, ob angemeldet (später: Firebase auth state)
+      if (!window.adminAuth.isLoggedIn()) {
+        window.location.href = 'admin-login.html?redirect=' + encodeURIComponent('admin.html');
+        return;
+      }
+
+      var userInfo = document.getElementById('admin-user-info');
+      if (userInfo) {
+        var user = window.adminAuth.getCurrentUser();
+        if (user && user.email) userInfo.textContent = user.email;
+      }
+
+      document.getElementById('admin-logout-btn').addEventListener('click', function() {
+        window.adminAuth.logout();
+        window.location.href = 'admin-login.html';
+      });
+    })();
+  </script>
+</body>
+</html>

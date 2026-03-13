@@ -82,6 +82,11 @@ body {
   opacity: 0.92;
 }
 
+/* Admin-Login-Trigger: kein sichtbarer Hinweis auf Klick (3× „Monti“) */
+.admin-login-trigger {
+  cursor: default;
+}
+
 .site-tagline {
   margin: 0;
   font-size: 0.9rem;
@@ -577,6 +582,122 @@ p {
   font-size: 0.9rem;
   color: var(--color-text-muted);
   margin-top: 1rem;
+}
+
+/* Vergleichsseite – Textentwürfe, Alt vs. Neu in zwei Spalten */
+.vergleich-intro {
+  margin-bottom: 2rem;
+}
+
+.vergleich-section {
+  margin: 2.5rem 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.vergleich-section-title {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--color-accent);
+  font-size: 1.25rem;
+}
+
+.vergleich-hint {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.vergleich-hint a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.vergleich-block {
+  margin: 0 0 1em;
+}
+
+/* Zwei Spalten: Alt (links) vs. Neu (rechts) */
+.vergleich-spalten {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0, 0.08);
+}
+
+.vergleich-col {
+  padding: 1.25rem 1.5rem;
+  min-height: 12rem;
+}
+
+.vergleich-col-label {
+  margin: 0 0 1rem !important;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid currentColor;
+}
+
+/* Linke Spalte: Original (alt) – warmes Beige */
+.vergleich-alt {
+  background: #e8dfd4;
+  border-right: 2px solid #d4c4b0;
+}
+
+.vergleich-alt .vergleich-col-label {
+  color: #8b691e;
+}
+
+/* Rechte Spalte: Neuer Entwurf (neu) – frisches Hellgrün */
+.vergleich-neu {
+  background: #dce8e0;
+  border-left: 1px solid #b8cfc0;
+}
+
+.vergleich-neu .vergleich-col-label {
+  color: #2d6b3e;
+}
+
+.vergleich-col .prose,
+.vergleich-col .page-intro {
+  max-width: none;
+}
+
+.vergleich-col p {
+  margin: 0 0 0.9em;
+  font-size: 1rem;
+}
+
+.vergleich-col .section-head {
+  margin-top: 1.25em;
+  margin-bottom: 0.4em;
+}
+
+/* Vergleichsseite: mehr Platz für zwei Spalten */
+main.vergleich-main {
+  max-width: 64rem;
+}
+
+@media (max-width: 720px) {
+  .vergleich-spalten {
+    grid-template-columns: 1fr;
+  }
+
+  .vergleich-alt {
+    border-right: none;
+    border-bottom: 2px solid #d4c4b0;
+  }
+
+  .vergleich-neu {
+    border-left: none;
+  }
 }
 
 /* Besucherzähler */
